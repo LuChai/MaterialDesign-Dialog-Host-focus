@@ -97,7 +97,7 @@
             <md:DrawerHost.BottomDrawerContent>
                 <Button Content="[V]Open First Dialog" Command="{x:Static md:DialogHost.OpenDialogCommand}">
                     <i:Interaction.Behaviors>
-                        <extensions:FocusBehavior/>
+                            <extensions:FocusBehavior FocusTrigger="{Binding IsBottomDrawerOpen, ElementName=ExampleDrawerHost}"/>
                     </i:Interaction.Behaviors>
                 </Button>
             </md:DrawerHost.BottomDrawerContent>
