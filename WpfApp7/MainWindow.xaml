@@ -1,0 +1,108 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        xmlns:extensions="clr-namespace:WpfApp7.Extensions"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="600">
+    <Grid>
+    <md:DialogHost  x:Name="FirstDialogHost">
+        <md:DialogHost.DialogContent>
+            <md:DialogHost x:Name="SecondDialogHost">
+
+                    <md:DialogHost.DialogContent>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="400"/>
+
+                            </Grid.RowDefinitions>
+                           
+
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+                                <Button x:Name="FocusonThis" Margin="20 20 20 0" HorizontalAlignment="Center" Content="Focus On This Button" Style="{StaticResource MaterialDesignFlatButton}">
+                                    <i:Interaction.Behaviors>
+                                        <extensions:FocusBehavior/>
+                                    </i:Interaction.Behaviors>
+                                </Button>
+                                <Button x:Name="CloseMedicalDetailsDialog" Margin="0 20 20 0" HorizontalAlignment="Center" Command="{x:Static md:DialogHost.CloseDialogCommand}"  IsCancel="True" 	Style="{StaticResource MaterialDesignFlatButton}">
+                                    [ESC]CANCEL
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                        
+                    </md:DialogHost.DialogContent>
+                
+                    <Grid x:Name="FirstDialogContent" Width="500" >
+                        
+                        <Grid.CommandBindings>
+                            <CommandBinding  Command="{x:Static md:DialogHost.OpenDialogCommand}" />
+                        </Grid.CommandBindings>
+                        <Grid.InputBindings>
+                            <KeyBinding Key="V" Command="{x:Static md:DialogHost.OpenDialogCommand}" />
+                        </Grid.InputBindings>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                       
+                        <StackPanel x:Name="OpenCancelPanel" Orientation="Vertical" Grid.Row="1">
+                            <Button x:Name="OpenHiddenPanel" Content="Open Hidden Panel (Focus on New Panel)" Click="OpenHiddenPanel_Click" HorizontalAlignment="Center" />
+                            <Button x:Name="OpenSecondDialog" Content="[V]iew Second Dialog"  HorizontalAlignment="Center" Command="{x:Static md:DialogHost.OpenDialogCommand}" >
+                                 <i:Interaction.Behaviors>
+                                    <extensions:FocusBehavior/>
+                                 </i:Interaction.Behaviors>
+                             </Button>
+                            <Button x:Name="CancelDialog"  HorizontalAlignment="Center" Command="{x:Static md:DialogHost.CloseDialogCommand}"  IsCancel="True" >
+                                 [ESC]CANCEL
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel x:Name="HiddenPanel" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Visibility="Collapsed" >
+                            <Button x:Name="HiddenPannelVisibilityButton" Content="Focus on This Button"  Click="HiddenPannelVisibilityButton_Click">
+                                <i:Interaction.Behaviors>
+                                    <extensions:FocusBehavior/>
+                                </i:Interaction.Behaviors>
+                            </Button>
+                            <Button x:Name="HiddenPanelCancel" Content="Cancel" IsCancel="True" Margin="10 0 10 0" Click="HiddenPanelCancel_Click"/>
+                        </StackPanel>
+
+                    </Grid>
+                  
+                </md:DialogHost>
+        </md:DialogHost.DialogContent>
+        <md:DrawerHost>
+            <md:DrawerHost.CommandBindings>
+                <CommandBinding Command="{x:Static md:DialogHost.OpenDialogCommand}" />
+            </md:DrawerHost.CommandBindings>
+            <md:DrawerHost.InputBindings>
+                <KeyBinding Key="V" Command="{x:Static md:DialogHost.OpenDialogCommand}"/>
+            </md:DrawerHost.InputBindings>
+            <md:DrawerHost.BottomDrawerContent>
+                <Button Content="[V]Open First Dialog" Command="{x:Static md:DialogHost.OpenDialogCommand}">
+                    <i:Interaction.Behaviors>
+                        <extensions:FocusBehavior/>
+                    </i:Interaction.Behaviors>
+                </Button>
+            </md:DrawerHost.BottomDrawerContent>
+            <Grid>
+                <Button x:Name="OpenDrawer" Content="Open Drawer" Command="{x:Static md:DrawerHost.OpenDrawerCommand}" CommandParameter="{x:Static Dock.Bottom}"/>
+            </Grid>
+        </md:DrawerHost>
+        
+        
+    </md:DialogHost>
+    </Grid>
+</Window>
