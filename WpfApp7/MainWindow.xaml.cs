@@ -42,5 +42,16 @@ namespace WpfApp7
             HiddenPanel.Visibility = Visibility.Visible;
             OpenCancelPanel.IsEnabled = false;
         }
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (ExampleDrawerHost.IsBottomDrawerOpen)
+            {
+                e.CanExecute = true;
+            }
+            else
+                e.CanExecute = false;
+            e.Handled = true;
+        }
     }
 }

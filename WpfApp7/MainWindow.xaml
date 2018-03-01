@@ -83,9 +83,9 @@
                   
                 </md:DialogHost>
         </md:DialogHost.DialogContent>
-        <md:DrawerHost>
+        <md:DrawerHost x:Name="ExampleDrawerHost">
             <md:DrawerHost.CommandBindings>
-                <CommandBinding Command="{x:Static md:DialogHost.OpenDialogCommand}" />
+                <CommandBinding Command="{x:Static md:DialogHost.OpenDialogCommand}" CanExecute="CommandBinding_CanExecute" />
             </md:DrawerHost.CommandBindings>
             <md:DrawerHost.InputBindings>
                 <KeyBinding Key="V" Command="{x:Static md:DialogHost.OpenDialogCommand}"/>
