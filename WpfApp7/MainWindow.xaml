@@ -41,9 +41,7 @@
                                 </Button>
                                 
                             </StackPanel>
-                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
-                                <TextBlock Text="Second Dialog"/>
-                            </StackPanel>
+                            
                         </Grid>
                         
                     </md:DialogHost.DialogContent>
