@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp7", "WpfApp7\WpfApp7.csproj", "{8171B97C-545A-43DA-97C1-F2FF4977D2A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocusDialogFromDrawer", "WpfApp7\FocusDialogFromDrawer.csproj", "{8171B97C-545A-43DA-97C1-F2FF4977D2A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FocusDialog", "FocusDialog\FocusDialog.csproj", "{E1D9E7A1-2913-4763-B15A-8973CBB12FF3}"
 EndProject

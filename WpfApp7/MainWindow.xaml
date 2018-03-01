@@ -15,7 +15,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="600">
+        Title="MainWindow" Height="500" Width="700">
     <Grid>
     <md:DialogHost  x:Name="FirstDialogHost">
         <md:DialogHost.DialogContent>
@@ -30,14 +30,15 @@
                             </Grid.RowDefinitions>
                            
 
-                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
-                                <Button x:Name="FocusonThis" Margin="20 20 20 0" HorizontalAlignment="Center" Content="Focus On This Button" Style="{StaticResource MaterialDesignFlatButton}">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"  Orientation="Vertical">
+                                <TextBlock Text="Second Dialog" HorizontalAlignment="Center"/>
+                                <Button x:Name="FocusonThis"  HorizontalAlignment="Center" Content="Focus On This Button" Style="{StaticResource MaterialDesignFlatButton}">
                                     <i:Interaction.Behaviors>
                                         <extensions:FocusBehavior/>
                                     </i:Interaction.Behaviors>
                                 </Button>
-                                <Button x:Name="CloseMedicalDetailsDialog" Margin="0 20 20 0" HorizontalAlignment="Center" Command="{x:Static md:DialogHost.CloseDialogCommand}"  IsCancel="True" 	Style="{StaticResource MaterialDesignFlatButton}">
-                                    [ESC]CANCEL
+                                <Button x:Name="CloseMedicalDetailsDialog" HorizontalAlignment="Center" Command="{x:Static md:DialogHost.CloseDialogCommand}"  IsCancel="True" 	Style="{StaticResource MaterialDesignFlatButton}">
+                                    [ESC]Cancel
                                 </Button>
                                 
                             </StackPanel>
@@ -56,11 +57,12 @@
                         </Grid.InputBindings>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="200"/>
                             <RowDefinition Height="100"/>
                         </Grid.RowDefinitions>
                        
                         <StackPanel x:Name="OpenCancelPanel" Orientation="Vertical" Grid.Row="1">
+                            <TextBlock Text="First Dialog" Margin="10" HorizontalAlignment="Center"/>
                             <Button x:Name="OpenHiddenPanel" Content="Open Hidden Panel (Focus on New Panel)" Click="OpenHiddenPanel_Click" HorizontalAlignment="Center" />
                             <Button x:Name="OpenSecondDialog" Content="[V]iew Second Dialog"  HorizontalAlignment="Center" Command="{x:Static md:DialogHost.OpenDialogCommand}" >
                                  <i:Interaction.Behaviors>
@@ -68,7 +70,7 @@
                                  </i:Interaction.Behaviors>
                              </Button>
                             <Button x:Name="CancelDialog"  HorizontalAlignment="Center" Command="{x:Static md:DialogHost.CloseDialogCommand}"  IsCancel="True" >
-                                 [ESC]CANCEL
+                                 [ESC]Cancel
                             </Button>
                         </StackPanel>
 
@@ -80,9 +82,7 @@
                             </Button>
                             <Button x:Name="HiddenPanelCancel" Content="Cancel" IsCancel="True" Margin="10 0 10 0" Click="HiddenPanelCancel_Click"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left">
-                            <TextBlock Text="First Dialog" Margin="10"/>
-                        </StackPanel>
+                        
                     </Grid>
                   
                 </md:DialogHost>
